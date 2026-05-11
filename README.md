@@ -1,4 +1,4 @@
-# 🛡️ OSS-2026: Mars Planetary Swarm Intelligence
+# 🛡️ Mars Maps Platform : Mars Planetary Swarm Intelligence
 
 [![Mission Status](https://img.shields.io/badge/Mission-Active-blue.svg)](https://mars.nasa.gov/)
 [![Engine](https://img.shields.io/badge/Engine-Python%203.10-green.svg)](/routing)
