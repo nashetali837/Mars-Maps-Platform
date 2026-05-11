@@ -95,4 +95,4 @@ Refer to [SECURITY.md](./SECURITY.md) for vulnerability reporting.
 
 ---
 
-*This software is released under the Open MIT License. For use in orbital or landed missions, contact the OMars Maps Platform steering committee.*
+*This software is released under the Open MIT License. For use in orbital or landed missions, contact the Mars Maps Platform steering committee.*
