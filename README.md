@@ -5,7 +5,7 @@
 [![Dashboard](https://img.shields.io/badge/Dashboard-React%2018-orange.svg)](/src)
 [![Security](https://img.shields.io/badge/Security-Firebase-yellow.svg)](/firestore.rules)
 
-**OSS-2026** is an Open Science Swarm (OSS) framework designed for autonomous rover fleet coordination in GPS-denied planetary environments. It combines high-fidelity terrain analysis, CUDA-accelerated pathfinding, and Particle Swarm Optimization (PSO) to maintain localization accuracy during extended scientific sorties.
+**Mars Maps Platform ** is an Open Source Intelligence Swarm (OSS) framework designed for autonomous rover fleet coordination in GPS-denied planetary environments. It combines high-fidelity terrain analysis, CUDA-accelerated pathfinding, and Particle Swarm Optimization (PSO) to maintain localization accuracy during extended scientific sorties.
 
 ## 🚀 System Architecture
 
