@@ -1,0 +1,21 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: mars-routing-engine
+  labels:
+    cloud.googleapis.com/location: asia-east1
+spec:
+  template:
+    spec:
+      containers:
+      - image: gcr.io/PROJECT_ID/mars-routing-engine
+        resources:
+          limits:
+            nvidia.com/gpu: 1
+            memory: 4Gi
+            cpu: 2
+        env:
+        - name: CUDA_ENABLED
+          value: "true"
+        - name: MARS_DATUM
+          value: "MARS2000"
