@@ -1,0 +1,9 @@
+numpy
+rasterio
+scipy
+fastapi
+uvicorn
+aiofiles
+rio-tiler
+numba
+torch

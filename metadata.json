@@ -1,0 +1,8 @@
+{
+  "name": "Self Localization on Mars-OSS",
+  "description": "The unified Mars Maps Platform for scientific pathfinding and swarm intelligence. Features real-time rover telemetry, A* routing APIs on HiRISE datasets, and developer documentation for cross-agency planetary exploration.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": []
+}

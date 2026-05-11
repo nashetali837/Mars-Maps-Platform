@@ -1,0 +1,89 @@
+{
+  "entities": {
+    "MissionLog": {
+      "title": "Mission Log",
+      "description": "Historical events and telemetry alerts for the swarm.",
+      "type": "object",
+      "properties": {
+        "timestamp": { "type": "string", "format": "date-time", "description": "Server timestamp of the event." },
+        "type": { "type": "string", "enum": ["TELEMETRY", "HAZARD", "SYSTEM", "ANALYSIS"], "description": "Categorization of the log." },
+        "message": { "type": "string", "description": "Human-readable event description." },
+        "roverId": { "type": "string", "description": "Identifier of the associated rover." },
+        "severity": { "type": "string", "enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"] }
+      },
+      "required": ["timestamp", "type", "message", "roverId"]
+    },
+    "RoverTelemetry": {
+      "title": "Rover Telemetry",
+      "description": "Real-time positioning and health data.",
+      "type": "object",
+      "properties": {
+        "roverId": { "type": "string" },
+        "realPos": {
+          "type": "object",
+          "properties": {
+            "x": { "type": "number" },
+            "y": { "type": "number" }
+          }
+        },
+        "imuPos": {
+          "type": "object",
+          "properties": {
+            "x": { "type": "number" },
+            "y": { "type": "number" }
+          }
+        },
+        "aiPos": {
+          "type": "object",
+          "properties": {
+            "x": { "type": "number" },
+            "y": { "type": "number" }
+          }
+        },
+        "status": { "type": "string", "enum": ["active", "calibrating", "stuck"] },
+        "battery": { "type": "number" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["roverId", "aiPos", "status", "battery", "updatedAt"]
+    },
+    "PathPlan": {
+      "title": "Path Plan",
+      "description": "Scientific trajectory calculated by the routing engine.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "roverId": { "type": "string" },
+        "start": { "$ref": "#/entities/Vector2D" },
+        "goal": { "$ref": "#/entities/Vector2D" },
+        "path": { "type": "array", "items": { "$ref": "#/entities/Vector2D" } },
+        "hazardRisk": { "type": "number" },
+        "algorithm": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["roverId", "start", "goal", "path", "createdAt"]
+    },
+    "Vector2D": {
+      "title": "Vector 2D",
+      "type": "object",
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" }
+      },
+      "required": ["x", "y"]
+    }
+  },
+  "firestore": {
+    "logs": {
+      "schema": "MissionLog",
+      "description": "Global mission audit trail."
+    },
+    "fleet": {
+      "schema": "RoverTelemetry",
+      "description": "Current state of all active rovers."
+    },
+    "trajectories": {
+      "schema": "PathPlan",
+      "description": "Stored scientific paths for analysis."
+    }
+  }
+}

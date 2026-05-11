@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  # Python Scientific Engine
+  routing-engine:
+    build:
+      context: .
+      dockerfile: Dockerfile.routing
+    ports:
+      - "8000:8000"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+
+  # Node.js Dashboard & Swarm Simulation
+  dashboard:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - ROUTING_SERVICE_URL=http://routing-engine:8000
+    depends_on:
+      - routing-engine
