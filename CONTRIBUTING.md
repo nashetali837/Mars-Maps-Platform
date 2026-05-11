@@ -42,4 +42,4 @@ The dashboard lives in `/src` and the server in `server.ts`.
 - Update `firestore.rules` if you introduce new data collections.
 
 ## ⚖️ License
-By contributing, you agree that your contributions will be licensed under the project's Open Science License.
+By contributing, you agree that your contributions will be licensed under the project's MIT License.
